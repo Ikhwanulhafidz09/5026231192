@@ -26,6 +26,7 @@ Route::view('/clonelinktree', 'clonelinktree');
 Route::view('/pertemuan7-js1', 'pertemuan7-js1');
 Route::view('/pertemuan7-js2', 'pertemuan7-js2');
 Route::view('/ets', 'ets');
+Route::view('/frontend','frontend');
 
 Route::get('dosen', [Link::class, 'index']);
 
