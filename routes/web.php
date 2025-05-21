@@ -31,8 +31,10 @@ Route::view('/frontend','frontend');
 Route::get('dosen', [Link::class, 'index']);
 
 Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
+
+// route formulir
 Route::get('/formulir', [PegawaiController::class, 'formulir']);
-Route::post('/pegawai/proses', [PegawaiController::class, 'proses']);
+Route::post('/formulir/proses', [PegawaiController::class, 'proses']);
 
 // route blog
 Route::get('/blog', [BlogController::class, 'home']);
