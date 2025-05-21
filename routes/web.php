@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\link;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\BlogController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +26,14 @@ Route::view('/clonelinktree', 'clonelinktree');
 Route::view('/pertemuan7-js1', 'pertemuan7-js1');
 Route::view('/pertemuan7-js2', 'pertemuan7-js2');
 Route::view('/ets', 'ets');
+
+Route::get('dosen', [Link::class, 'index']);
+
+Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
+Route::get('/formulir', [PegawaiController::class, 'formulir']);
+Route::post('/pegawai/proses', [PegawaiController::class, 'proses']);
+
+// route blog
+Route::get('/blog', [BlogController::class, 'home']);
+Route::get('/blog/tentang', [BlogController::class, 'tentang']);
+Route::get('/blog/kontak', [BlogController::class, 'kontak']);
