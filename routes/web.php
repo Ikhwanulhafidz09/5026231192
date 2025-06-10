@@ -1,42 +1,58 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\link;
-use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\Link;
+use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\PegawaiController;
+use App\Http\Controllers\RAMController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+// Route bawaan default laravel
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::view('/pertemuan1', 'pertemuan1');
+// Route frontend
+Route::view('/frontend', 'frontend');
+
+// Route github 5026231159
 Route::view('/pertemuan3', 'pertemuan3');
-Route::view('/clonelinktree', 'clonelinktree');
+Route::view('/pertemuan4', 'pertemuan4');
+Route::view('/template1', 'template1');
+Route::view('/tugaslinktree', 'tugaslinktree');
 Route::view('/pertemuan7-js1', 'pertemuan7-js1');
 Route::view('/pertemuan7-js2', 'pertemuan7-js2');
 Route::view('/ets', 'ets');
-Route::view('/frontend','frontend');
 
+// Route pegawai
+//Route::get('/pegawai/{nama}', [Pegawai2Controller::class, 'index']);
+
+// Route dosen
 Route::get('dosen', [Link::class, 'index']);
 
-Route::get('/pegawai/{nama}', [PegawaiController::class, 'index']);
+// Route formulir
+Route::get('/formulir', [Pegawai2Controller::class, 'formulir']);
+Route::post('/formulir/proses', [Pegawai2Controller::class, 'proses']);
 
-// route formulir
-Route::get('/formulir', [PegawaiController::class, 'formulir']);
-Route::post('/formulir/proses', [PegawaiController::class, 'proses']);
-
-// route blog
+// Route blog
 Route::get('/blog', [BlogController::class, 'home']);
 Route::get('/blog/tentang', [BlogController::class, 'tentang']);
 Route::get('/blog/kontak', [BlogController::class, 'kontak']);
+
+// Route CRUD Pegawai
+Route::get('/pegawai', [PegawaiController::class, 'index']);
+Route::get('/pegawai/tambah', [PegawaiController::class,'tambah']);
+Route::post('/pegawai/store', [PegawaiController::class,'store']);
+Route::get('/pegawai/edit/{id}', [PegawaiController::class,'edit']);
+Route::post('/pegawai/update', [PegawaiController::class,'update']);
+Route::delete('/pegawai/hapus/{id}', [PegawaiController::class, 'hapus']);
+Route::get('/pegawai/cari', [PegawaiController::class, 'cari']);
+
+// Route CRUD RAM
+Route::get('/ram', [RAMController::class, 'index']);
+Route::get('/ram/tambah', [RAMController::class,'tambah']);
+Route::post('/ram/store', [RAMController::class,'store']);
+Route::get('/ram/edit/{id}', [RAMController::class,'edit']);
+Route::post('/ram/update', [RAMController::class,'update']);
+Route::delete('/ram/hapus/{id}', [RAMController::class, 'hapus']);
+Route::get('/ram/cari', [RAMController::class, 'cari']);
