@@ -6,6 +6,7 @@ use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiController;
 use App\Http\Controllers\RAMController;
+use App\Http\Controllers\KaryawanController;
 
 // Route bawaan default laravel
 Route::get('/', function () {
@@ -16,10 +17,10 @@ Route::get('/', function () {
 Route::view('/frontend', 'frontend');
 
 // Route github 5026231159
+Route::view('/pertemuan1', 'pertemuan1');
 Route::view('/pertemuan3', 'pertemuan3');
-Route::view('/pertemuan4', 'pertemuan4');
 Route::view('/template1', 'template1');
-Route::view('/tugaslinktree', 'tugaslinktree');
+Route::view('/clonelinktree', 'clonelinktree');
 Route::view('/pertemuan7-js1', 'pertemuan7-js1');
 Route::view('/pertemuan7-js2', 'pertemuan7-js2');
 Route::view('/ets', 'ets');
@@ -56,3 +57,12 @@ Route::get('/ram/edit/{id}', [RAMController::class,'edit']);
 Route::post('/ram/update', [RAMController::class,'update']);
 Route::delete('/ram/hapus/{id}', [RAMController::class, 'hapus']);
 Route::get('/ram/cari', [RAMController::class, 'cari']);
+
+// Route CRUD Karyawan
+Route::get('/karyawan', [KaryawanController::class, 'index']);
+Route::get('/karyawan/tambah', [KaryawanController::class, 'tambah']);
+Route::post('/karyawan/store', [KaryawanController::class, 'store']);
+Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit']);
+Route::post('/karyawan/update', [KaryawanController::class, 'update']);
+Route::delete('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
+Route::get('/karyawan/cari', [KaryawanController::class, 'cari']);
