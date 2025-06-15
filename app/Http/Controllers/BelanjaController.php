@@ -39,8 +39,8 @@ class BelanjaController extends Controller
 
         // Simpan ke database
         DB::table('keranjangbelanja')->insert([
-            'kode_barang' => $request->kodeBarang,
-            'jumlah' => $request->jumlahBeli,
+            'KodeBarang' => $request->kodeBarang,
+            'Jumlah' => $request->jumlahBeli,
             'Harga' => $hargaperitem,
         ]);
 
