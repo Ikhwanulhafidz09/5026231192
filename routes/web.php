@@ -5,8 +5,9 @@ use App\Http\Controllers\Link;
 use App\Http\Controllers\Pegawai2Controller;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\PegawaiController;
-use App\Http\Controllers\RAMController;
+use App\Http\Controllers\KipasAnginController;
 use App\Http\Controllers\KaryawanController;
+use App\Http\Controllers\BelanjaController;
 
 // Route bawaan default laravel
 Route::get('/', function () {
@@ -49,14 +50,15 @@ Route::post('/pegawai/update', [PegawaiController::class,'update']);
 Route::delete('/pegawai/hapus/{id}', [PegawaiController::class, 'hapus']);
 Route::get('/pegawai/cari', [PegawaiController::class, 'cari']);
 
-// Route CRUD RAM
-Route::get('/ram', [RAMController::class, 'index']);
-Route::get('/ram/tambah', [RAMController::class,'tambah']);
-Route::post('/ram/store', [RAMController::class,'store']);
-Route::get('/ram/edit/{id}', [RAMController::class,'edit']);
-Route::post('/ram/update', [RAMController::class,'update']);
-Route::delete('/ram/hapus/{id}', [RAMController::class, 'hapus']);
-Route::get('/ram/cari', [RAMController::class, 'cari']);
+// Route CRUD Kipas Angin
+Route::get('/kipasangin', [KipasAnginController::class, 'index']);
+Route::get('/kipasangin/tambah', [KipasAnginController::class, 'tambah']);
+Route::post('/kipasangin/store', [KipasAnginController::class, 'store']);
+Route::get('/kipasangin/edit/{id}', [KipasAnginController::class, 'edit']);
+Route::post('/kipasangin/update', [KipasAnginController::class, 'update']);
+Route::delete('/kipasangin/hapus/{id}', [KipasAnginController::class, 'hapus']);
+Route::get('/kipasangin/cari', [KipasAnginController::class, 'cari']);
+
 
 // Route CRUD Karyawan
 Route::get('/karyawan', [KaryawanController::class, 'index']);
@@ -66,3 +68,9 @@ Route::get('/karyawan/edit/{id}', [KaryawanController::class, 'edit']);
 Route::post('/karyawan/update', [KaryawanController::class, 'update']);
 Route::delete('/karyawan/hapus/{id}', [KaryawanController::class, 'hapus']);
 Route::get('/karyawan/cari', [KaryawanController::class, 'cari']);
+
+// Route CRUD Belanja
+Route::get('/belanja', [BelanjaController::class, 'index']);
+Route::get('/belanja/tambah', [BelanjaController::class, 'tambah']);
+Route::post('/belanja/store', [BelanjaController::class, 'store']);
+Route::get('/belanja/hapus/{id}', [BelanjaController::class, 'hapus']);

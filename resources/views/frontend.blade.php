@@ -46,7 +46,7 @@
         </a>
         <a href="{{ url('/pegawai') }}" class="card">
             <img src="{{ asset('image/page frontend/number9.png') }}" alt="CRUD PEGAWAI">
-            <p>CRUD</p>
+            <p>CRUD PEGAWAI</p>
         </a>
     </div>
 
